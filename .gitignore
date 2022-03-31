@@ -34,3 +34,10 @@ tsconfig.build.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# ENVIRONMENT
+.env
+.env.local
+.env.development
+.env.test
+.env.production
