@@ -17,25 +17,27 @@ export class BookController {
   constructor(private bookService: BookService) {}
 
   @Get()
-  getAllBook(): Observable<Book[]> {
+  public async getAllBook(): Promise<Observable<Book[]>> {
     return this.bookService.getAllBooks();
   }
 
   @Post()
-  createBook(@Body() book: Book): Observable<Book> {
+  public async createBook(@Body() book: Book): Promise<Observable<Book>> {
     return this.bookService.createBooks(book);
   }
 
   @Put(':id')
-  updateBook(
+  public async updateBook(
     @Param('id') id: number,
     @Body() book: Book,
-  ): Observable<UpdateResult> {
+  ): Promise<Observable<UpdateResult>> {
     return this.bookService.updateBooks(id, book);
   }
 
   @Delete(':id')
-  deleteBook(@Param('id') id: number): Observable<DeleteResult> {
+  public async deleteBook(
+    @Param('id') id: number,
+  ): Promise<Observable<DeleteResult>> {
     return this.bookService.deleteBooks(id);
   }
 }

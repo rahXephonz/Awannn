@@ -12,19 +12,22 @@ export class BookService {
     private readonly bookRepository: Repository<BookEntity>,
   ) {}
 
-  getAllBooks(): Observable<Book[]> {
+  public async getAllBooks(): Promise<Observable<Book[]>> {
     return from(this.bookRepository.find());
   }
 
-  createBooks(book: Book): Observable<Book> {
+  public async createBooks(book: Book): Promise<Observable<Book>> {
     return from(this.bookRepository.save(book));
   }
 
-  updateBooks(id: number, book: Book): Observable<UpdateResult> {
+  public async updateBooks(
+    id: number,
+    book: Book,
+  ): Promise<Observable<UpdateResult>> {
     return from(this.bookRepository.update(id, book));
   }
 
-  deleteBooks(id: number): Observable<DeleteResult> {
+  public async deleteBooks(id: number): Promise<Observable<DeleteResult>> {
     return from(this.bookRepository.delete(id));
   }
 }
