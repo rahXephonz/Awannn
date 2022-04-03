@@ -11,7 +11,7 @@ export class AuthController {
 
   @Post('signup')
   @ApiCreatedResponse({
-    description: 'Creating a book',
+    description: 'Signing up a user account to access all of the features',
   })
   @ApiBody({ type: UserEntity })
   signup(@Body() user: User): Observable<User> {
@@ -20,7 +20,7 @@ export class AuthController {
 
   @Post('signin')
   @ApiCreatedResponse({
-    description: 'Creating a book',
+    description: 'Login to get access token and pass it into authorize butto',
   })
   @ApiBody({ type: SigninEntity })
   signin(@Body() user: User): Observable<{ access_token: string }> {
