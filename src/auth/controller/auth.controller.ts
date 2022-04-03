@@ -20,7 +20,7 @@ export class AuthController {
 
   @Post('signin')
   @ApiCreatedResponse({
-    description: 'Login to get access token and pass it into authorize butto',
+    description: 'Login to get access token and pass it into authorize button',
   })
   @ApiBody({ type: SigninEntity })
   signin(@Body() user: User): Observable<{ access_token: string }> {
