@@ -12,7 +12,7 @@ export function createDocument(app: INestApplication): OpenAPIObject {
         scheme: 'bearer',
         bearerFormat: 'JWT',
       },
-      'access-token',
+      'access_token',
     )
     .setVersion(SWAGGER_CONFIG.version);
 

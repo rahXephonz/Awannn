@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from '../auth/auth.module';
 import { BookModule } from '../book/book.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -22,6 +23,7 @@ import { AppService } from './app.service';
       synchronize: process.env.NODE_ENV === 'development' ? false : true,
     }),
     BookModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,5 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
+import { UserEntity } from '../../auth/models/user.entity';
 
 @Entity('book')
 export class BookEntity {
@@ -10,6 +17,9 @@ export class BookEntity {
   @ApiProperty({ type: String, description: 'title' })
   title: string;
 
-  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  @CreateDateColumn()
   createdAt: Date;
+
+  @ManyToOne(() => UserEntity, (userEntity) => userEntity.books)
+  author: UserEntity;
 }

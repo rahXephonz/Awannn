@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
 import {
   Body,
   Controller,
@@ -6,57 +7,83 @@ import {
   Param,
   Post,
   Put,
+  Query,
+  Request,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiBody, ApiCreatedResponse } from '@nestjs/swagger';
 import { Observable } from 'rxjs';
+import { JwtGuard } from '../../auth/guards/jwt.guard';
 import { DeleteResult, UpdateResult } from 'typeorm';
 import { BookEntity } from '../models/book.entity';
 import { Book } from '../models/book.interface';
 import { BookService } from '../service/book.service';
+import { Roles } from '../../auth/decorators/roles.decorator';
+import { Role } from '../../auth/models/role.enum';
+import { RolesGuard } from '../../auth/guards/roles.guard';
+import { IsCreatorGuard } from '../guards/is-creator.guard';
 
 @Controller('book')
 export class BookController {
   constructor(private bookService: BookService) {}
 
   @Get()
+  @UseGuards(JwtGuard)
   @ApiCreatedResponse({
-    description: 'Getting all of books',
+    description: 'Getting all of books use take and skip to get paginate',
   })
-  public async getAllBook(): Promise<Observable<Book[]>> {
-    const books = await this.bookService.getAllBooks();
-    return books;
+  getPaginateBooks(
+    @Query('take') take: number = 1,
+    @Query('skip') skip: number = 1,
+  ): Observable<Book[]> {
+    take = take > 20 ? 20 : take;
+
+    const paginateBooks = this.bookService.getAllBooks(take, skip);
+    return paginateBooks;
   }
 
   @Post()
+  @UseGuards(JwtGuard, RolesGuard)
+  @Roles(Role.ADMIN, Role.USER)
   @ApiCreatedResponse({
     description: 'Creating a book',
   })
   @ApiBody({ type: BookEntity })
-  public async createBook(@Body() book: Book): Promise<Observable<Book>> {
-    const creatingBook = await this.bookService.createBooks(book);
+  createBook(@Body() book: Book, @Request() req): Observable<Book> {
+    const creatingBook = this.bookService.createBooks(req.user, book);
     return creatingBook;
   }
 
   @Put(':id')
+  @UseGuards(JwtGuard, RolesGuard, IsCreatorGuard)
+  @Roles(Role.ADMIN, Role.USER)
   @ApiCreatedResponse({
     description: 'Updating a book',
   })
-  public async updateBook(
+  updateBook(
     @Param('id') id: number,
     @Body() book: Book,
-  ): Promise<Observable<UpdateResult>> {
-    const updatingBook = await this.bookService.updateBooks(id, book);
+  ): Observable<UpdateResult> {
+    const updatingBook = this.bookService.updateBooks(id, book);
     return updatingBook;
   }
 
   @Delete(':id')
+  @UseGuards(JwtGuard, RolesGuard, IsCreatorGuard)
+  @Roles(Role.ADMIN, Role.USER)
   @ApiCreatedResponse({
     description: 'Deleting a book',
   })
-  public async deleteBook(
-    @Param('id') id: number,
-  ): Promise<Observable<DeleteResult>> {
-    const deletingBook = await this.bookService.deleteBooks(id);
+  deleteBook(@Param('id') id: number): Observable<DeleteResult> {
+    const deletingBook = this.bookService.deleteBooks(id);
     return deletingBook;
+  }
+
+  @Get(':id')
+  @UseGuards(JwtGuard)
+  findBooksById(@Param('id') id: number): Observable<Book> {
+    const findBookById = this.bookService.findBooksById(id);
+
+    return findBookById;
   }
 }
