@@ -11,6 +11,9 @@ export function createDocument(app: INestApplication): OpenAPIObject {
         type: 'http',
         scheme: 'bearer',
         bearerFormat: 'JWT',
+        name: 'JWT',
+        description: 'Enter JWT token',
+        in: 'header',
       },
       'access_token',
     )

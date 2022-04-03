@@ -11,7 +11,7 @@ import {
   Request,
   UseGuards,
 } from '@nestjs/common';
-import { ApiBody, ApiCreatedResponse } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody, ApiCreatedResponse } from '@nestjs/swagger';
 import { Observable } from 'rxjs';
 import { JwtGuard } from '../../auth/guards/jwt.guard';
 import { DeleteResult, UpdateResult } from 'typeorm';
@@ -32,6 +32,7 @@ export class BookController {
   @ApiCreatedResponse({
     description: 'Getting all of books use take and skip to get paginate',
   })
+  @ApiBearerAuth('access_token')
   getPaginateBooks(
     @Query('take') take: number = 1,
     @Query('skip') skip: number = 1,
@@ -49,6 +50,7 @@ export class BookController {
     description: 'Creating a book',
   })
   @ApiBody({ type: BookEntity })
+  @ApiBearerAuth('access_token')
   createBook(@Body() book: Book, @Request() req): Observable<Book> {
     const creatingBook = this.bookService.createBooks(req.user, book);
     return creatingBook;
@@ -60,6 +62,7 @@ export class BookController {
   @ApiCreatedResponse({
     description: 'Updating a book',
   })
+  @ApiBearerAuth('access_token')
   updateBook(
     @Param('id') id: number,
     @Body() book: Book,
@@ -74,6 +77,7 @@ export class BookController {
   @ApiCreatedResponse({
     description: 'Deleting a book',
   })
+  @ApiBearerAuth('access_token')
   deleteBook(@Param('id') id: number): Observable<DeleteResult> {
     const deletingBook = this.bookService.deleteBooks(id);
     return deletingBook;
@@ -81,6 +85,7 @@ export class BookController {
 
   @Get(':id')
   @UseGuards(JwtGuard)
+  @ApiBearerAuth('access_token')
   findBooksById(@Param('id') id: number): Observable<Book> {
     const findBookById = this.bookService.findBooksById(id);
 
