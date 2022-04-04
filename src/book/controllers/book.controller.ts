@@ -52,6 +52,8 @@ export class BookController {
   @ApiBody({ type: BookEntity })
   @ApiBearerAuth('access_token')
   createBook(@Body() book: Book, @Request() req): Observable<Book> {
+    console.log(req.user);
+
     const creatingBook = this.bookService.createBooks(req.user, book);
     return creatingBook;
   }
