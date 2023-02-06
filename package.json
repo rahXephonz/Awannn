@@ -28,7 +28,7 @@
     "@nestjs/jwt": "10.0.1",
     "@nestjs/passport": "9.0.0",
     "@nestjs/platform-express": "9.2.1",
-    "@nestjs/swagger": "6.1.4",
+    "@nestjs/swagger": "6.2.1",
     "@nestjs/typeorm": "9.0.1",
     "bcrypt": "5.1.0",
     "class-sanitizer": "1.0.1",
