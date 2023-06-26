@@ -837,10 +837,10 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@nestjs/cli@10.0.3":
-  version "10.0.3"
-  resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-10.0.3.tgz#0eedf0934e443523254790e190268d44ec2124ad"
-  integrity sha512-mmcc8NmYdMVwOkXkK9FZofk+dXYWYAEBIP9AOnI5/+idhPLLkjBUFdT5iP55hTE3NZ6OUGIBrteBe5iJEqyqRw==
+"@nestjs/cli@10.0.4":
+  version "10.0.4"
+  resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-10.0.4.tgz#7bc151870b805f64b826fb2123e71fc1e38b1951"
+  integrity sha512-+i0lh2+pl2fLVek+RfKJxDHmZa0PhVePwoSEcpSMnJSjXajp0YQYRJHCdHp8ocAk3YQNgKPfuoxN0vmxbhabIw==
   dependencies:
     "@angular-devkit/core" "16.1.0"
     "@angular-devkit/schematics" "16.1.0"
