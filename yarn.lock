@@ -1286,10 +1286,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.15.1.tgz#41dc2bf78e8085a250d4670d95edb7fba621dd29"
   integrity sha512-U2TWca8AeHSmbpi314QBESRk7oPjSZjDsR+c+H4ECC1l+kFgpZf8Ydhv3SJpPy51VyZHHqxlb6mTTqYNNRVAIw==
 
-"@types/nodemon@1.19.3":
-  version "1.19.3"
-  resolved "https://registry.yarnpkg.com/@types/nodemon/-/nodemon-1.19.3.tgz#b7d3cd4f7fca8cae2a4345f73d8502298155fd46"
-  integrity sha512-LcKdWgch8uHOF73yYpdE7YPVLT0HnFI60zyNBpJyfAiDDwPy3WAxReQeB84UseE8e8qdJsBqmFXWbjxv7jlXBg==
+"@types/nodemon@1.19.4":
+  version "1.19.4"
+  resolved "https://registry.yarnpkg.com/@types/nodemon/-/nodemon-1.19.4.tgz#f6dfaa0236eaee1cfe5ad80165aef5b1a0a71463"
+  integrity sha512-xWfDFY0hH9TRprHD1N0/Lp0dkze/vahRxLMN3cgW+PGnmtSzMXaNlTeWmSmlvefXFv5L0spheNZ0XEFB/O9ttQ==
   dependencies:
     "@types/node" "*"
 
