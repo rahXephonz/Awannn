@@ -1289,10 +1289,10 @@
   dependencies:
     undici-types "~5.26.4"
 
-"@types/nodemon@1.19.4":
-  version "1.19.4"
-  resolved "https://registry.yarnpkg.com/@types/nodemon/-/nodemon-1.19.4.tgz#f6dfaa0236eaee1cfe5ad80165aef5b1a0a71463"
-  integrity sha512-xWfDFY0hH9TRprHD1N0/Lp0dkze/vahRxLMN3cgW+PGnmtSzMXaNlTeWmSmlvefXFv5L0spheNZ0XEFB/O9ttQ==
+"@types/nodemon@1.19.5":
+  version "1.19.5"
+  resolved "https://registry.yarnpkg.com/@types/nodemon/-/nodemon-1.19.5.tgz#204dd36b509e4ffece57274ead52b0faead1b23a"
+  integrity sha512-jUKYdrnwLp4jMztMdQEJnF4lBhthCfqE7P6cYCIy0txMJrSFtKqs2HjmyEsyQueLjZjve0IjJ1S+20DtgJpUjA==
   dependencies:
     "@types/node" "*"
 
