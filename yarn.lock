@@ -892,10 +892,10 @@
   resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.15.0.tgz#f29a55df17cb6e87cfbabce33ff6a14a9f85076d"
   integrity sha512-HZpPoABogPvjeJOdzCOSJsXeL/SMCBgBZMVC3X3d7YYp2gf31MfxhUoYUNwf1ERPJOnQc0wkFn9trqI6ZEdZuA==
 
-"@nestjs/cli@10.4.3":
-  version "10.4.3"
-  resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-10.4.3.tgz#6496fcde4ab1e843f55b55c554c81c1ca1ee824c"
-  integrity sha512-m902UdU21Bcj1FWyNIBUW9BNL7w+birbt+wNaO7lew+Lj1G4fFaPWBElx9ULThSnalLp1NEmcy3mzLnzDgeodw==
+"@nestjs/cli@10.4.4":
+  version "10.4.4"
+  resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-10.4.4.tgz#6fed6fa3259417ea3dc0b62a3888e4aedbaa1642"
+  integrity sha512-WKERbSZJGof0+9XeeMmWnb/9FpNxogcB5eTJTHjc9no0ymdTw3jTzT+KZL9iC/hGqBpuomDLaNFCYbAOt29nBw==
   dependencies:
     "@angular-devkit/core" "17.3.8"
     "@angular-devkit/schematics" "17.3.8"
